@@ -13,6 +13,7 @@ Most of the knowledge here comes from the Diablo 1 and Hellfire modding communit
 - [Diablo 1 DUN File Format - Level Maps](PC-Mac/DUN.md)
 - [Diablo 1 SOL File Format - Sub-Tile Flags](PC-Mac/SOL.md)
 - [Diablo 1 AMP File Format - Automap Flags](PC-Mac/AMP.md)
+- [DevilX TMI File Format - Automap Flags](PC-Mac/TMI.md)
 
 
 ## PlayStation
