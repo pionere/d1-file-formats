@@ -90,6 +90,8 @@ The content of this part is not used by the game.
 
 This layer defines which monsters stand in the level.  
 This layer is a sub-tile layer, which is 4 times the size of the tile layer `{BASE LAYER}`.
+If the highest bit is not set, the monster is a normal monster and the type is selected from a hardcoded table.
+If the highest bit is set, the monster is a unique monster and it is selected by subtracting one from the rest of the bits.
 
 
 ### 4.4 `{OBJECTS LAYER}`
@@ -108,11 +110,8 @@ This layer is a sub-tile layer, which is 4 times the size of the tile layer `{BA
 {ROOMS INDEX} * {MAP WIDTH * 2} * {MAP HEIGHT * 2}
 ```
 
-This layer defines the room index of the given sub-tile.  
-This layer is a sub-tile layer, which is 4 times the size of the tile layer `{BASE LAYER}`.  
-The values are only used in case of complete set-levels.  
-In caves every non-external subtile is initialized with room-index of 1.  
-The rooms of "Chamber of Bone" are hardcoded in the game.
+This layer defined the room index of the given sub-tile.  
+The content of this part is no longer used by the game.  
 
 
 ## 5. Executable Hardcoded DUN Level Maps
