@@ -5,7 +5,7 @@
 [3. `{DUN HEADER}`](#3-dun-header)  
 [4. `{MAP LAYERS}`](#4-map-layers)  
 [4.1 `{BASE LAYER}`](#41-base-layer)  
-[4.2 `{ITEMS LAYER}`](#42-items-layer)  
+[4.2 `{PROTECTIONS LAYER}`](#42-protections-layer)  
 [4.3 `{MONSTERS LAYER}`](#43-monsters-layer)  
 [4.4 `{OBJECTS LAYER}`](#44-objects-layer)  
 [4.5 `{ROOMS LAYER}`](#45-rooms-layer)  
@@ -44,7 +44,7 @@ Level maps data longer than one byte (WORDs and DWORDs)	is stored using little-e
 
 ```
 {BASE LAYER}
-[{ITEMS LAYER}
+[{PROTECTIONS LAYER}
 {MONSTERS LAYER}
 {OBJECTS LAYER}
 {ROOMS LAYER}]
@@ -71,15 +71,26 @@ The real tile index (in `lX.til`) is obtained with the following formula:
 When `{INCREMENTED TILE INDEX}` is equal to 0 the default floor tile is used and might be changed if it is not a complete map.
 
 
-### 4.2 `{ITEMS LAYER}`
+### 4.2 `{PROTECTIONS LAYER}`
 
 ```
-{ITEMS TABLE INDEX} * {MAP WIDTH * 2} * {MAP HEIGHT * 2}
+{PROTECTION FLAGS} * {MAP WIDTH} * {MAP HEIGHT}
+{PLACEHOLDER} * {MAP WIDTH} * {MAP HEIGHT} * 3
 ```
 
-This layer defines which items lie on the level ground.  
-This layer is a sub-tile layer, which is 4 times the size of the tile layer `{BASE LAYER}`.
-The content of this part is not used by the game.
+This layer defined which items lie on the level ground.  
+Now it specifies the protections of the tile and the related subtiles against modifications by the dungeon generator.  
+The bits of the {PROTECTION FLAGS} have the following meaning (starting from lowest bit):
+- `1` : the tile might be decorated, but otherwise should be unchanged
+- `2` : the tile can not be changed at all
+- `3`..`8` : (unused)
+- `9` : no object, monster or item should be generated on the first subtile (top left)
+- `10` : (unused)
+- `11` : no object, monster or item should be generated on the second subtile (top right)
+- `12` : (unused)
+- `13` : no object, monster or item should be generated on the third subtile (bottom left)
+- `14` : (unused)
+- `15` : no object, monster or item should be generated on the fourth subtile (bottom right)
 
 
 ### 4.3 `{MONSTERS LAYER}`
