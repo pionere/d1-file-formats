@@ -84,13 +84,14 @@ The bits of the {PROTECTION FLAGS} have the following meaning (starting from low
 - `1` : the tile might be decorated, but otherwise should be unchanged
 - `2` : the tile can not be changed at all
 - `3`..`8` : (unused)
-- `9` : no object, monster or item should be generated on the first subtile (top left)
-- `10` : (unused)
-- `11` : no object, monster or item should be generated on the second subtile (top right)
-- `12` : (unused)
-- `13` : no object, monster or item should be generated on the third subtile (bottom left)
-- `14` : (unused)
-- `15` : no object, monster or item should be generated on the fourth subtile (bottom right)
+- `9` : no monster should be generated on the first subtile (top left)
+- `10` : no object should be generated on the first subtile (top left)
+- `11` : no monster should be generated on the second subtile (top right)
+- `12` : no object should be generated on the second subtile (top right)
+- `13` : no monster should be generated on the third subtile (bottom left)
+- `14` : no object should be generated on the third subtile (bottom left
+- `15` : no monster should be generated on the fourth subtile (bottom right)
+- `16` : no object should be generated on the fourth subtile (bottom right)
 
 
 ### 4.3 `{MONSTERS LAYER}`
